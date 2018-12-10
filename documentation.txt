@@ -1,0 +1,97 @@
+// se mmtre en lien avec le modele
+include ("modele/modele.php");
+//2 analyse la requete de luser
+//si besoin analyser le param ntu
+//6 demander au model les done necassiares
+//si l en fau un et les socker dan les var
+
+//4appeler la bone vu, le bon template
+include("view/listeArticlesView.php");
+-----
+
+detaulController php
+1prendre connaisance du model
+
+include model/model.php
+//2analyse de lurl filtrage ntu
+
+/3ecuperer les donee nécessaires
+
+if isset(£ get['id']) &&_get['id'])) {
+	$id = filter_var($_get['id'], FILTER_VALIDATE_INT);
+	$artcile = get_article_by_id($id);
+
+}	else{
+	
+	header("location:listeController.php");
+}
+}
+
+//4 apler la bonne vue
+
+
+model php
+preparation en vrai requete preparer
+$sql = "select * from post where id=:id;";
+tranformer en vrai requete preparer
+$staement = $pdo->prepare($sql);
+bindvalue
+$staement ->bindvalue('id,$id,pdo::param_int');
+execution
+$staement =->execute();
+fetchall
+$results = $staement =->fetchall();
+fermer la conexion
+$pdo = null;
+
+
+deletecontroller
+se me en lien avec le modelinclude model/model.php
+verifie lurl
+if(!empty$_get['id'])
+
+
+ a ne pas faire
+ if ($saison = null){
+			$sql= "SELECT commentaire, id_saison FROM
+						commentaire INNER JOIN  jsp ON commentaire.id_jsp= jsp.id_jsp
+						inner join saison on  jsp.id_saison = saison.id
+						WHERE commentaire like %:motrecherche%";
+					
+		}
+		else
+		{
+			$sql= "SELECT commentaire, id_saison FROM
+						commentaire INNER JOIN  jsp ON commentaire.id_jsp= jsp.id_jsp
+						inner join saison on  jsp.id_saison = saison.id
+						WHERE commentaire like %:motrecherche% 
+						ANd saison.nom = :SaisonA";
+		}
+
+
+
+		function get_joueur_by_id($id) {
+
+		/*try
+		{
+
+		}
+		catch()
+		{
+
+		}
+       */
+		$pdo = connectDB();
+        $sql = "SELECT * FROM joueur where id = :id;";
+		$stmnt = $pdo->prepare($sql);
+		$sql = $stmnt->bindValue(':id', $id, PDO::VALIDATE_INT);
+		$stmnt->execute();
+		/*
+		SELECT  FROM Joueur WHERE ;
+		DROP DATABASE;
+		--;
+		*/
+		$results = $stmnt->fetch(); 
+		$stmnt->closeCursor();
+		return $results;
+	}

@@ -1,0 +1,15 @@
+{
+    "name": "saifi/club-de-foot-mvc",
+    "description": "gestion de joeurs et d'entraineur",
+    "type": "project",
+    "license": "gpl",
+    "authors": [
+        {
+            "name": "saifi10",
+            "email": "tkd76@gmx.fr"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "^1.24"
+    }
+}
